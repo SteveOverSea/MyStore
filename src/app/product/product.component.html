@@ -1,4 +1,4 @@
 <h2>{{ product.name }}</h2>
 <img src="{{ product.imageURL }}">
 <p>{{ product.price | currency: "EUR" }}</p>
-<button>add to cart</button>
+<button (click)="addToCart()">add to cart</button>
