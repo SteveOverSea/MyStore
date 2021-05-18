@@ -9,6 +9,7 @@ import { CartComponent } from './cart/cart.component';
 import { NavigationComponent } from './navigation/navigation.component';
 import { ProductDetailsComponent } from './product-details/product-details.component';
 import { CartItemComponent } from './cart-item/cart-item.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { CartItemComponent } from './cart-item/cart-item.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
