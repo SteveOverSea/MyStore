@@ -16,4 +16,8 @@ export class CartService {
   remove(product: Product) {
     this.products = this.products.filter(p => p !== product);
   }
+
+  get(): Product[] {
+    return this.products;
+  }
 }
