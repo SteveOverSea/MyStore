@@ -1,3 +1,4 @@
+<h2>Your cart</h2>
 <ul>
-    <li *ngFor="let product of products">{{ product.name }}: {{ product.price | currency: "EUR" }}</li>
+    <app-cart-item *ngFor="let product of products" [product]="product"></app-cart-item>
 </ul>
