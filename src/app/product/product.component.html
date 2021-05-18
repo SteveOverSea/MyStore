@@ -1,4 +1,6 @@
 <h2>{{ product.name }}</h2>
-<img src="{{ product.imageURL }}">
+<a routerLink="/product/{{ product.id }}">
+    <img src="{{ product.imageURL }}">
+</a>
 <p>{{ product.price | currency: "EUR" }}</p>
 <button (click)="addToCart()">add to cart</button>
