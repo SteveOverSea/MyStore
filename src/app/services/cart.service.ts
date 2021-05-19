@@ -10,8 +10,8 @@ import { BehaviorSubject } from "rxjs";
 export class CartService {
   products: Product[] = [];
   order: Order = new Order();
-  countSubject = new BehaviorSubject<number>(0);
-  countObservable = this.countSubject.asObservable();
+  count = new BehaviorSubject<number>(0);
+  //countObservable = this.countSubject.asObservable();
 
   constructor() { }
 
@@ -23,13 +23,13 @@ export class CartService {
       product.quantity += quantity;
       this.products.push(product);
     }
-    this.countSubject.next(this.getCount());
+    this.count.next(this.getCount());
   }
 
   remove(product: Product) {
     product.quantity = 0;
     this.products = this.products.filter(p => p !== product);
-    this.countSubject.next(this.getCount());
+    this.count.next(this.getCount());
   }
 
   get(): Product[] {

@@ -12,7 +12,7 @@ export class NavigationComponent implements OnInit {
   constructor(private cart: CartService) { }
 
   ngOnInit(): void {
-    this.cart.countObservable.subscribe(count => this.cartCount = count);
+    this.cart.count.subscribe(count => this.cartCount = count);
   }
 
 }
