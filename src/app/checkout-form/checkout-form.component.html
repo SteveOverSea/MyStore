@@ -1,6 +1,16 @@
-<form (ngSubmit)="onSubmit()">
-    <input type="text" name="name" [(ngModel)]="name" placeholder="full name">
-    <input type="text" name="address" [(ngModel)]="address" placeholder="address">
-    <input type="text" name="creditCard" [(ngModel)]="creditCard" placeholder="credit card numbers">
-    <button type="submit">Order</button>
+<form (ngSubmit)="onSubmit()" #form="ngForm">
+    <input type="text" name="name" [(ngModel)]="name" placeholder="full name" pattern="([a-zA-Z]+\s)+([a-zA-Z]+)" required #fullName="ngModel">
+    <input type="text" name="address" [(ngModel)]="address" placeholder="address" pattern="([a-zA-Z-]+\s)+(([a-zA-Z-]+)\s)*\d+" required #addressField="ngModel">
+    <input type="text" name="creditCard" [(ngModel)]="creditCard" pattern="(\d{4}(\s)?){4}" placeholder="credit card numbers" required #card="ngModel">
+    <button type="submit" [disabled]="form.invalid">Order</button>
 </form>
+
+<div *ngIf="card.errors?.pattern">
+    Please enter a valid credit card number (16-digit or 4-number groups with spaces)
+</div>
+<div *ngIf="fullName.errors?.pattern">
+    Please enter a valid name (at least: name + surname)
+</div>
+<div *ngIf="addressField.errors?.pattern">
+    Please enter a valid address (Streetname + Number)
+</div>
