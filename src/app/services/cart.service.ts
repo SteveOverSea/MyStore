@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Product } from "../models/Product";
 import { Order } from "../models/Order";
+import { BehaviorSubject } from "rxjs";
 
 
 @Injectable({
@@ -9,6 +10,8 @@ import { Order } from "../models/Order";
 export class CartService {
   products: Product[] = [];
   order: Order = new Order();
+  countSubject = new BehaviorSubject<number>(0);
+  countObservable = this.countSubject.asObservable();
 
   constructor() { }
 
@@ -20,11 +23,13 @@ export class CartService {
       product.quantity += quantity;
       this.products.push(product);
     }
+    this.countSubject.next(this.getCount());
   }
 
   remove(product: Product) {
     product.quantity = 0;
     this.products = this.products.filter(p => p !== product);
+    this.countSubject.next(this.getCount());
   }
 
   get(): Product[] {
@@ -43,5 +48,11 @@ export class CartService {
     let sum = 0;
     this.products.forEach(p => sum += p.quantity * p.price);
     return sum;
+  }
+
+  getCount(): number {
+    let sum = 0;
+    this.products.forEach(p => sum += p.quantity);
+    return sum; 
   }
 }
