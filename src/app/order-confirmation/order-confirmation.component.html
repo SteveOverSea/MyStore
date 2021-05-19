@@ -1,1 +1,3 @@
-<p>order-confirmation works!</p>
+<h2>Success!</h2>
+<p>Thank you, {{ order.userdata.fullname }}</p>
+<p>Your order with a total of {{ total | currency: "EUR" }} is confirmed.</p>

@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Userdata } from "../../models/Userdata";
+import { Order } from "../../models/Order";
+import { CartService } from "../../services/cart.service";
+
 
 @Component({
   selector: 'app-checkout-form',
@@ -10,14 +14,24 @@ export class CheckoutFormComponent implements OnInit {
   name: string = "";
   address: string = "";
   creditCard: string = "";
+  userdata: Userdata = new Userdata();
+  order: Order = new Order();
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private cart: CartService) { }
 
   ngOnInit(): void {
   }
 
   onSubmit(): void {
-    alert("Success with " + this.name + ", " + this.address + ", " + this.creditCard);
+    this.userdata.fullname = this.name;
+    this.userdata.address = this.address;
+    this.userdata.creditCard = this.creditCard;
+
+    this.order.products = this.cart.get();
+    this.order.userdata = this.userdata;
+
+    this.cart.saveOrder(this.order);
+    
     this.router.navigateByUrl("/confirm");
   }
 

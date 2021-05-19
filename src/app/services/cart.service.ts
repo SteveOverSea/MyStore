@@ -1,11 +1,14 @@
 import { Injectable } from '@angular/core';
 import { Product } from "../models/Product";
+import { Order } from "../models/Order";
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class CartService {
   products: Product[] = [];
+  order: Order = new Order();
 
   constructor() { }
 
@@ -26,5 +29,19 @@ export class CartService {
 
   get(): Product[] {
     return this.products;
+  }
+
+  saveOrder(order: Order): void{
+    this.order = order;
+  }
+
+  getOrder(): Order {
+    return this.order;
+  }
+
+  getTotal(): number {
+    let sum = 0;
+    this.products.forEach(p => sum += p.quantity * p.price);
+    return sum;
   }
 }
