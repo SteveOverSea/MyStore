@@ -11,6 +11,7 @@ import { ProductDetailsComponent } from './product-list/product-details/product-
 import { CartItemComponent } from './cart/cart-item/cart-item.component';
 import { FormsModule } from '@angular/forms';
 import { CheckoutFormComponent } from './cart/checkout-form/checkout-form.component';
+import { OrderConfirmationComponent } from './order-confirmation/order-confirmation.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { CheckoutFormComponent } from './cart/checkout-form/checkout-form.compon
     NavigationComponent,
     ProductDetailsComponent,
     CartItemComponent,
-    CheckoutFormComponent
+    CheckoutFormComponent,
+    OrderConfirmationComponent
   ],
   imports: [
     BrowserModule,

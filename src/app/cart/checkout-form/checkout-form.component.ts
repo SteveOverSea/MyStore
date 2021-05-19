@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-checkout-form',
@@ -10,13 +11,14 @@ export class CheckoutFormComponent implements OnInit {
   address: string = "";
   creditCard: string = "";
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
   }
 
   onSubmit(): void {
     alert("Success with " + this.name + ", " + this.address + ", " + this.creditCard);
+    this.router.navigateByUrl("/confirm");
   }
 
 }
