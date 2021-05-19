@@ -1,0 +1,9 @@
+#cart-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+h2 {
+    margin-top: 0;
+}

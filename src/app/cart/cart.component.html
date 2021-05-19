@@ -1,7 +1,12 @@
-<h2>Your cart</h2>
-<ul>
-    <app-cart-item *ngFor="let product of products" [product]="product"></app-cart-item>
-</ul>
-<p>Total: {{ sum | currency: "EUR" }}</p>
+<div id="cart-container">
+    <div class="cart">
+        <h2>Your cart</h2>
+        <ul>
+            <app-cart-item *ngFor="let product of products" [product]="product"></app-cart-item>
+        </ul>
+        <p *ngIf="sum">Total: {{ sum | currency: "EUR" }}</p>
+        <p *ngIf="!sum">Cart is empty</p>
+    </div>
 
-<app-checkout-form></app-checkout-form>
+    <app-checkout-form></app-checkout-form>
+</div>

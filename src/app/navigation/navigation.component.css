@@ -1,3 +1,20 @@
 a {
-    margin-right: 1rem;
+    margin: 1rem;
+    text-decoration: none;
+    color: lightseagreen;
+}
+
+a:hover {
+    text-decoration: line-through;
+}
+
+#nav-container, ul {
+    text-align: center;
+    margin: 0;
+    margin-block-start: auto;
+    margin-block-end: auto;
+    margin-inline-start: auto;
+    margin-inline-end: auto;
+    margin: 0;
+    padding: 0;
 }

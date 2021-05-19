@@ -1,3 +1,13 @@
 div {
     color: red;
 }
+
+#checkout-form-container, form {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+}
+
+input, button {
+    margin: 0.5rem;
+}

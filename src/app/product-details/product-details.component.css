@@ -2,4 +2,11 @@ img {
     width: 300px;
     height: 400px;
     object-fit: cover;
+    display: block;
+}
+
+#product-details-container {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
 }
