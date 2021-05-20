@@ -26,7 +26,6 @@ export class ProductDetailsComponent implements OnInit {
   }
 
   addToCart(): void {
-    console.log(this.quantity);
     this.cart.add(this.product, this.quantity);
   }
 

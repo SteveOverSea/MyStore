@@ -6,4 +6,23 @@
 
 h2 {
     margin-top: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+p {
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: left;
+    margin-left: 2rem;
+}
+
+html {
+    margin: 0;
+}
+
+ul{
+    margin-block-start: 0;
+    margin-block-end: auto;
+    padding-inline-start: 0;
+
 }

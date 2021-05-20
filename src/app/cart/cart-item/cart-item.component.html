@@ -1,4 +1,5 @@
 <div id="cart-item-container">
+    <img src="{{ product.url }}">
     <p>{{ product.name }} {{ product.price | currency: "EUR" }}</p>
     <input type="number" min="1" (input)="checkNumbers($event)" [(ngModel)]=product.quantity>
     <button (click)="removeFromCart()">remove</button>

@@ -1,6 +1,6 @@
 img {
-    width: 300px;
-    height: 400px;
+    width: 450px;
+    height: 600px;
     object-fit: cover;
     display: block;
 }
@@ -9,4 +9,23 @@ img {
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
+    margin-top: 4rem;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: baseline;
+}
+
+#product-details-info {
+    align-self: center;
+    padding-left: 50px;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+h2 {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 2rem;
 }

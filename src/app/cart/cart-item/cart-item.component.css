@@ -1,9 +1,26 @@
 #cart-item-container {
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
+    justify-content: flex-start;
+    align-items: center;
 }
 
 input {
-    width: fit-content;
+    width: 25px;
+    height: min-content;
+}
+
+p {
+    width: 200px;
+}
+
+button {
+    margin-left: 50px;
+    cursor: pointer;
+}
+
+img {
+    width: 100px;
+    height: 130px;
+    margin: 10px;
 }
