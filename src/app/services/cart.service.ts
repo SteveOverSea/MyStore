@@ -37,6 +37,11 @@ export class CartService {
     return this.products;
   }
 
+  empty(): void {
+    this.products = [];
+    this.count.next(0);
+  }
+
   saveOrder(order: Order): void{
     this.order = order;
   }
@@ -48,6 +53,12 @@ export class CartService {
   getTotal(): number {
     let sum = 0;
     this.products.forEach(p => sum += p.quantity * p.price);
+    return sum;
+  }
+
+  getTotalFromOrder(order: Order): number {
+    let sum = 0;
+    order.products.forEach(p => sum += p.quantity * p.price);
     return sum;
   }
 

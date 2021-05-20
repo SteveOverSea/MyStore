@@ -16,7 +16,7 @@ export class OrderConfirmationComponent implements OnInit {
 
   ngOnInit(): void {
     this.order = this.cart.getOrder();
-    this.total = this.cart.getTotal();
+    this.total = this.cart.getTotalFromOrder(this.order);
   }
 
 }
