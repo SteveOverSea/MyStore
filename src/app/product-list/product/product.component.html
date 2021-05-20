@@ -1,6 +1,6 @@
 <h2>{{ product.name }}</h2>
 <a routerLink="/product/{{ product.id }}">
-    <img src="{{ product.imageURL }}">
+    <img src="{{ product.url }}">
 </a>
 <p>{{ product.price | currency: "EUR" }}</p>
 <select name="quantity" (change)="setQuantity($event)">

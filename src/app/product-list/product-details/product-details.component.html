@@ -1,6 +1,6 @@
 <div id="product-details-container">
     <h2> {{ product.name }}</h2>
-    <img src="{{ product.imageURL }}">
+    <img src="{{ product.url }}">
     <p>{{ product.description }}</p>
     <p>{{ product.price | currency: "EUR" }}</p>
     <select name="quantity" (change)="setQuantity($event)">

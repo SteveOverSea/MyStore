@@ -12,6 +12,7 @@ import { CartItemComponent } from './cart/cart-item/cart-item.component';
 import { FormsModule } from '@angular/forms';
 import { CheckoutFormComponent } from './cart/checkout-form/checkout-form.component';
 import { OrderConfirmationComponent } from './order-confirmation/order-confirmation.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { OrderConfirmationComponent } from './order-confirmation/order-confirmat
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

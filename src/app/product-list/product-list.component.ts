@@ -10,10 +10,10 @@ import { ProductsService } from "../services/products.service";
 export class ProductListComponent implements OnInit {
   products: Product[] = [];
 
-  constructor(private productsService: ProductsService) { }
+  constructor(private productsService: ProductsService ) { }
 
   ngOnInit(): void {
-    this.products = this.productsService.getProducts();
+    this.productsService.loadedProduct.subscribe(() => this.products = this.productsService.getProducts());
   }
 
 }
