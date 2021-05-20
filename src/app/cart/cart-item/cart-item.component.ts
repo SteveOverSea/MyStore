@@ -24,4 +24,14 @@ export class CartItemComponent implements OnInit {
     this.cart.editedProducts.next(true);
   }
 
+  checkNumbers(e: Event): void {
+    const input = ( e.target as HTMLInputElement)
+    const value= parseInt(input.value);
+    if (value && Math.abs(value) > 0) {
+      input.value = Math.abs(value).toString();
+    } else {
+      input.value = "";
+    }
+  }
+
 }

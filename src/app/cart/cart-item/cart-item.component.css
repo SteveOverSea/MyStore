@@ -1,4 +1,9 @@
-span {
-    color: plum;
-    cursor: pointer;
+#cart-item-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+input {
+    width: fit-content;
 }
