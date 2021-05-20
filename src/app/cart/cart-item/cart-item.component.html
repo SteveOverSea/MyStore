@@ -1,6 +1,5 @@
 <div id="cart-item-container">
     <p>{{ product.name }} {{ product.price | currency: "EUR" }}</p>
-    <input type="number" min="1" oninput="this.value = 
-    !!this.value && Math.abs(this.value) > 0 ? Math.abs(this.value) : null" [(ngModel)]=product.quantity (change)="editQuantity()">
+    <input type="number" min="1" (input)="checkNumbers($event)" [(ngModel)]=product.quantity (change)="editQuantity()">
     <button (click)="removeFromCart()">remove</button>
 </div>
