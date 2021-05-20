@@ -20,18 +20,20 @@ export class CartItemComponent implements OnInit {
     this.cart.remove(this.product);
   }
 
-  editQuantity(): void {
-    this.cart.editedProducts.next(true);
-  }
-
   checkNumbers(e: Event): void {
     const input = ( e.target as HTMLInputElement)
     const value= parseInt(input.value);
+    
     if (value && Math.abs(value) > 0) {
       input.value = Math.abs(value).toString();
     } else {
-      input.value = "";
+      input.value = "1";
     }
+
+    this.product.quantity = parseInt(input.value);
+    console.log(this.product.quantity);
+    this.cart.editedProducts.next(true);
+    this.cart.count.next(this.cart.getCount());
   }
 
 }
