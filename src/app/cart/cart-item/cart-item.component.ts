@@ -31,7 +31,6 @@ export class CartItemComponent implements OnInit {
     }
 
     this.product.quantity = parseInt(input.value);
-    console.log(this.product.quantity);
     this.cart.editedProducts.next(true);
     this.cart.count.next(this.cart.getCount());
   }
