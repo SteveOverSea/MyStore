@@ -1,2 +1,3 @@
 <p>{{ product.name }} {{ product.price | currency: "EUR" }} {{product.quantity}}x <span (click)="removeFromCart()">remove</span></p>
+<input type="number" [(ngModel)]=product.quantity (change)="editQuantity()">
 

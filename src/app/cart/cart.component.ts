@@ -18,7 +18,10 @@ export class CartComponent implements OnInit {
     this.products = this.cart.get();
     this.sum = this.cart.getTotal();
 
-    this.cart.editedProducts.subscribe(() => this.products = this.cart.get());
+    this.cart.editedProducts.subscribe(() => {
+      this.products = this.cart.get();
+      this.sum = this.cart.getTotal();
+    });
   }
 
 }
