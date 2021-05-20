@@ -11,7 +11,7 @@ export class CartService {
   products: Product[] = [];
   order: Order = new Order();
   count = new BehaviorSubject<number>(0);
-  //countObservable = this.countSubject.asObservable();
+  editedProducts = new BehaviorSubject<boolean>(false);
 
   constructor() { }
 
@@ -30,6 +30,7 @@ export class CartService {
     product.quantity = 0;
     this.products = this.products.filter(p => p !== product);
     this.count.next(this.getCount());
+    this.editedProducts.next(true);
   }
 
   get(): Product[] {
