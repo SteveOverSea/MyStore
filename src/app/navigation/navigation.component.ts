@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { CartService } from "../services/cart.service";
-import { HttpClient } from '@angular/common/http';
 import { BackendConnectionService } from "../services/backend-connection.service";
 
 @Component({
@@ -13,7 +12,7 @@ export class NavigationComponent implements OnInit {
   users: any[] = [];
 
 
-  constructor(private cart: CartService, private http: HttpClient, public backendConnectionServie: BackendConnectionService) { }
+  constructor(private cart: CartService, public backendConnectionServie: BackendConnectionService) { }
 
   ngOnInit(): void {
     this.cart.count.subscribe(count => this.cartCount = count);
