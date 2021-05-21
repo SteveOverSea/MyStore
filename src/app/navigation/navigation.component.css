@@ -21,6 +21,16 @@ a:hover {
     width: 100vw;
 }
 
+ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
 h1 {
     font-family: Arial, Helvetica, sans-serif;
 }
+
+
+
