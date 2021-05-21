@@ -1,0 +1,6 @@
+<a href="#" (click)="toggleForm($event)">Login/Signup</a>
+<form (ngSubmit)="onSubmit()" id="login-form" hidden>
+    <input type="text" name="username" placeholder="username" [(ngModel)]="username">
+    <input type="password" name="password" placeholder="password" [(ngModel)]="password">
+    <input type="submit">
+</form>

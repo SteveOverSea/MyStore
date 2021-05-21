@@ -13,6 +13,7 @@ import { FormsModule } from '@angular/forms';
 import { CheckoutFormComponent } from './cart/checkout-form/checkout-form.component';
 import { OrderConfirmationComponent } from './order-confirmation/order-confirmation.component';
 import { HttpClientModule } from '@angular/common/http';
+import { LoginComponent } from './navigation/login/login.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { HttpClientModule } from '@angular/common/http';
     ProductDetailsComponent,
     CartItemComponent,
     CheckoutFormComponent,
-    OrderConfirmationComponent
+    OrderConfirmationComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
