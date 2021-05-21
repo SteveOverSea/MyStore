@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CartService } from "../services/cart.service";
 import { HttpClient } from '@angular/common/http';
+import { BackendConnectionService } from "../services/backend-connection.service";
 
 @Component({
   selector: 'app-navigation',
@@ -13,10 +14,11 @@ export class NavigationComponent implements OnInit {
   username: string = "";
   password: string = "";
 
-  constructor(private cart: CartService, private http: HttpClient) { }
+  constructor(private cart: CartService, private http: HttpClient, public backendConnectionServie: BackendConnectionService) { }
 
   ngOnInit(): void {
     this.cart.count.subscribe(count => this.cartCount = count);
+    this.backendConnectionServie.hostnameTest();
   }
 
   toggleForm(e: Event): void {

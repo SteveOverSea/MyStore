@@ -1,5 +1,8 @@
 <div id="nav-container">
     <h1>My Store</h1>
+    <span *ngIf="this.backendConnectionServie.isConnectedToBackend">connected to backend</span>
+    <span *ngIf="!this.backendConnectionServie.isConnectedToBackend">connected to data.json</span>
+
     <ul>
         <a routerLink="/">Store</a>
         <a routerLink="/cart">Cart({{ cartCount }})</a>
