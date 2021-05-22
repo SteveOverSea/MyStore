@@ -1,0 +1,8 @@
+<h2>Add a new product</h2>
+<form (ngSubmit)="onSubmit()">
+    <input type="text" name="name" placeholder="product name" [(ngModel)]="name">
+    <input type="text" name="description" placeholder="description" [(ngModel)]="description">
+    <input type="text" name="price" placeholder="price" [(ngModel)]="price">
+    <input type="url" name="url" placeholder="image url" [(ngModel)]="url">
+    <input type="submit">
+</form>

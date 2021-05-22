@@ -5,12 +5,14 @@ import { ProductListComponent } from "./product-list/product-list.component";
 import { CartComponent } from "./cart/cart.component";
 import { ProductDetailsComponent } from "./product-list/product-details/product-details.component";
 import { OrderConfirmationComponent } from "./order-confirmation/order-confirmation.component";
+import { AddProductComponent } from "./add-product/add-product.component";
 
 const routes: Routes = [
   { path: '', component: ProductListComponent },
   { path: 'cart', component: CartComponent },
   { path: 'product/:id', component: ProductDetailsComponent},
-  { path: 'confirm', component: OrderConfirmationComponent}
+  { path: 'confirm', component: OrderConfirmationComponent},
+  { path: 'addProduct', component: AddProductComponent}
 ];
 
 @NgModule({

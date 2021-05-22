@@ -25,10 +25,10 @@ export class LoginComponent implements OnInit {
     this.loginService.loggedIn.subscribe((data: boolean) => {
       this.isLoggedIn = data;
       if (this.isLoggedIn) {
-      this.userLoggedIn.emit();
-      this.first_name = "";
-      this.last_name = "";
-      this.password = "";
+        this.userLoggedIn.emit();
+        this.first_name = "";
+        this.last_name = "";
+        this.password = "";
       }
     });
     this.loginService.userExists.subscribe((data: boolean) => this.userExists = data);
@@ -38,7 +38,8 @@ export class LoginComponent implements OnInit {
     this.loginService.loginUser({
       first_name: this.first_name,
       last_name: this.last_name,
-      password: this.password
+      password: this.password,
+      is_admin: false
     });
 
     
@@ -50,7 +51,8 @@ export class LoginComponent implements OnInit {
     this.loginService.shouldUserBeCreated(selectValue, {
       first_name: this.first_name,
       last_name: this.last_name,
-      password: this.password
+      password: this.password,
+      is_admin: false
     });
 
     if (this.isLoggedIn) {

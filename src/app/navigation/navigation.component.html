@@ -6,8 +6,10 @@
     <ul>
         <a routerLink="/">Store</a>
         <a routerLink="/cart">Cart({{ cartCount }})</a>
+        <a routerLink="/addProduct" *ngIf="loggedInUser.is_admin">Add new product</a>
         
         <app-login *ngIf="this.backendConnectionServie.isConnectedToBackend"></app-login>
+        
         
        
     </ul>

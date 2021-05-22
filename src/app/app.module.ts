@@ -14,6 +14,7 @@ import { CheckoutFormComponent } from './cart/checkout-form/checkout-form.compon
 import { OrderConfirmationComponent } from './order-confirmation/order-confirmation.component';
 import { HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './navigation/login/login.component';
+import { AddProductComponent } from './add-product/add-product.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { LoginComponent } from './navigation/login/login.component';
     CartItemComponent,
     CheckoutFormComponent,
     OrderConfirmationComponent,
-    LoginComponent
+    LoginComponent,
+    AddProductComponent
   ],
   imports: [
     BrowserModule,
