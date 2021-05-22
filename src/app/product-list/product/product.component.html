@@ -3,6 +3,7 @@
         <img src="{{ product.url }}">
     </a>
     <h2>{{ product.name }}</h2>
+    <span *ngIf="isAdmin" (click)="deleteProduct()">delete</span>
     <div id="input-container">
         <p>{{ product.price | currency: "EUR" }}</p>
         <select name="quantity" (change)="setQuantity($event)">

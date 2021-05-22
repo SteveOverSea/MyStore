@@ -10,6 +10,11 @@ img {
     margin: 2rem auto;
 }
 
+span { 
+    cursor: pointer;
+    color: red;
+}
+
 #input-container {
     width: 80%;
     margin: 0 auto;

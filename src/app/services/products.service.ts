@@ -58,4 +58,14 @@ export class ProductsService {
       this.router.navigateByUrl("/");
     }, error => console.log(error));
   }
+
+  deleteProduct(product: Product): void {
+    const header = {
+      headers: new HttpHeaders()
+        .set('Authorization',  `Bearer ${this.loginService.usertoken.value}`)
+    };
+    this.http.delete(`/products/${product.id}`, header).subscribe(data => {
+      this.loadProducts();
+    }, error => console.log(error));
+  }
 }
