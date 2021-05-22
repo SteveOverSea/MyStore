@@ -57,10 +57,11 @@ export class LoginComponent implements OnInit {
 
     if (this.isLoggedIn) {
       this.userLoggedIn.emit();
-      this.first_name = "";
-      this.last_name = "";
-      this.password = "";
     }
+    
+    this.first_name = "";
+    this.last_name = "";
+    this.password = "";
   }
 
   toggleForm(e: Event): void {
