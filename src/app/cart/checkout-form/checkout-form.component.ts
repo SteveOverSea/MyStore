@@ -16,10 +16,12 @@ export class CheckoutFormComponent implements OnInit {
   creditCard: string = "";
   userdata: Userdata = new Userdata();
   order: Order = new Order();
+  cartCount: number = 0;
 
   constructor(private router: Router, private cart: CartService) { }
 
   ngOnInit(): void {
+    this.cart.count.subscribe(() => this.cartCount = this.cart.getCount());
   }
 
   onSubmit(): void {

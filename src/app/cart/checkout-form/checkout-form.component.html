@@ -3,7 +3,7 @@
         <input type="text" name="name" [(ngModel)]="name" placeholder="full name" pattern="([a-zA-Z]+\s)+([a-zA-Z]+)" required #fullName="ngModel">
         <input type="text" name="address" [(ngModel)]="address" placeholder="address" pattern="([a-zA-Z-]+\s)+(([a-zA-Z-]+)\s)*\d+" required #addressField="ngModel">
         <input type="text" name="creditCard" [(ngModel)]="creditCard" pattern="(\d{4}(\s)?){4}" placeholder="credit card numbers" required #card="ngModel">
-        <button type="submit" [disabled]="form.invalid">Order</button>
+        <button type="submit" [disabled]="form.invalid || this.cartCount == 0">Order</button>
     </form>
 
     <div *ngIf="card.errors?.pattern">
@@ -14,5 +14,8 @@
     </div>
     <div *ngIf="addressField.errors?.pattern">
         Please enter a valid address (Streetname + Number)
+    </div>
+    <div *ngIf="this.cartCount == 0">
+        Your cart is empty
     </div>
 </div>
