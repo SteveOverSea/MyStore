@@ -7,7 +7,8 @@
         <a routerLink="/">Store</a>
         <a routerLink="/cart">Cart({{ cartCount }})</a>
         
-        <app-login *ngIf="this.backendConnectionServie.isConnectedToBackend"></app-login>
+        <app-login *ngIf="this.backendConnectionServie.isConnectedToBackend" (loggedIn)="showLoginName($event)"></app-login>
+        <p *ngIf="loggedIn">Logged in as: {{ loggedInUsername }}</p>
        
     </ul>
 </div>

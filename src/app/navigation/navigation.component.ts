@@ -10,6 +10,8 @@ import { BackendConnectionService } from "../services/backend-connection.service
 export class NavigationComponent implements OnInit {
   cartCount: number = 0;
   users: any[] = [];
+  loggedIn: boolean = false;
+  loggedInUsername: string = "";
 
 
   constructor(private cart: CartService, public backendConnectionServie: BackendConnectionService) { }
@@ -17,5 +19,10 @@ export class NavigationComponent implements OnInit {
   ngOnInit(): void {
     this.cart.count.subscribe(count => this.cartCount = count);
     this.backendConnectionServie.hostnameTest();
+  }
+
+  showLoginName(username: string): void {
+    this.loggedIn = true;
+    this.loggedInUsername = username;
   }
 }

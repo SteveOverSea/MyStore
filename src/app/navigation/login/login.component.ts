@@ -1,6 +1,7 @@
 import { HttpErrorResponse } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Token } from "../../models/Token";
+import { User } from "../../models/User";
 import { BackendConnectionService } from "../../services/backend-connection.service";
 
 @Component({
@@ -14,6 +15,7 @@ export class LoginComponent implements OnInit {
   password: string = "";
   usertoken: string = "";
   userExists: boolean = true;
+  @Output() loggedIn: EventEmitter<string> = new EventEmitter();
 
   constructor(private backendConnectionService: BackendConnectionService) { }
 
@@ -33,6 +35,7 @@ export class LoginComponent implements OnInit {
       if(data) {
         this.usertoken = data.token;
         console.log(this.usertoken);
+        this.emitLoggedInUser(this.usertoken);
       }
     }, ( err: HttpErrorResponse ) => {
       console.log(err.error);
@@ -57,6 +60,7 @@ export class LoginComponent implements OnInit {
         this.usertoken = data.token;
         console.log(this.usertoken);
         this.userExists = true;
+        this.emitLoggedInUser(this.usertoken);
       });
 
     } else if (selectValue === "false") {
@@ -67,6 +71,10 @@ export class LoginComponent implements OnInit {
   toggleForm(e: Event): void {
     const form = document.getElementById("login-form") as HTMLFormElement;
     form.hidden = !form.hidden;
+  }
+
+  emitLoggedInUser(token: string): void{
+    this.backendConnectionService.getDecodedUser(token).subscribe( (data: User) => this.loggedIn.emit(data.first_name + " " + data.last_name));
   }
 
 }

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { User } from "../models/User";
 import { Token } from "../models/Token";
-import { HttpClient } from "@angular/common/http";
+import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -24,5 +24,13 @@ export class BackendConnectionService {
 
   createUser(user: User): Observable<Token> {
     return this.http.post("/users", user) as Observable<Token>;
+  }
+
+  getDecodedUser(token: string): Observable<User> {
+    const header = {
+      headers: new HttpHeaders()
+        .set('Authorization',  `Bearer ${token}`)
+    };
+    return this.http.get("/user/decoded", header) as Observable<User>;
   }
 }
