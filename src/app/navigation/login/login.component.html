@@ -1,3 +1,4 @@
+<div *ngIf="!usertoken">
 <a href="#" (click)="toggleForm($event)">Login/Signup</a>
 <form (ngSubmit)="onSubmit()" id="login-form" hidden>
     <input type="text" name="first_name" placeholder="first name" [(ngModel)]="first_name">
@@ -12,4 +13,9 @@
         <option value="true">yes</option>
         <option value="false">no</option>
     </select>
+</div>
+</div>
+
+<div *ngIf="usertoken">
+    <a href="#" (click)="logout($event)">Logout</a>
 </div>

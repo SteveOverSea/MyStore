@@ -15,7 +15,8 @@ export class LoginComponent implements OnInit {
   password: string = "";
   usertoken: string = "";
   userExists: boolean = true;
-  @Output() loggedIn: EventEmitter<string> = new EventEmitter();
+  @Output() loggedInUser: EventEmitter<string> = new EventEmitter();
+  @Output() isLoggedIn: EventEmitter<boolean> = new EventEmitter();
 
   constructor(private backendConnectionService: BackendConnectionService) { }
 
@@ -74,7 +75,16 @@ export class LoginComponent implements OnInit {
   }
 
   emitLoggedInUser(token: string): void{
-    this.backendConnectionService.getDecodedUser(token).subscribe( (data: User) => this.loggedIn.emit(data.first_name + " " + data.last_name));
+    this.isLoggedIn.emit(true);
+    this.backendConnectionService.getDecodedUser(token).subscribe( (data: User) => this.loggedInUser.emit(data.first_name + " " + data.last_name));
+    this.first_name = "";
+    this.last_name = "";
+    this.password = "";
+  }
+
+  logout(e: Event): void {
+    this.isLoggedIn.emit(false);
+    this.usertoken = "";
   }
 
 }

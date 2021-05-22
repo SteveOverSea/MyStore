@@ -22,7 +22,10 @@ export class NavigationComponent implements OnInit {
   }
 
   showLoginName(username: string): void {
-    this.loggedIn = true;
     this.loggedInUsername = username;
+  }
+
+  setLoginState(state: boolean): void {
+    this.loggedIn = state;
   }
 }
