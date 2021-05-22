@@ -73,4 +73,12 @@ export class BackendConnectionService {
     };
     return this.http.get("/user/decoded", header) as Observable<User>;
   }
+
+  deleteUser(user: User, token: string): void {
+    const header = {
+      headers: new HttpHeaders()
+        .set('Authorization',  `Bearer ${token}`)
+    };
+    this.http.delete(`/users/${user.id}`, header).subscribe(() => console.log("user deleted"), err => console.log(err));
+  }
 }

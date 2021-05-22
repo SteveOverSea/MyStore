@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { from } from 'rxjs';
 import { User } from '../models/User';
 import { LoginService } from "../services/login.service";
 import { BackendConnectionService } from "../services/backend-connection.service";
 import { HttpErrorResponse } from '@angular/common/http';
 import { OrderList } from '../models/OrderList';
+import {Router} from '@angular/router'
 
 @Component({
   selector: 'app-userpage',
@@ -17,7 +17,7 @@ export class UserpageComponent implements OnInit {
   orders: OrderList[] = [];
   sortedOrders: any[] = [];
 
-  constructor(private loginService: LoginService, private backendConnectionService: BackendConnectionService) { }
+  constructor(private loginService: LoginService, private backendConnectionService: BackendConnectionService, private router: Router) { }
 
   ngOnInit(): void {
     this.loginService.loggedInUser.subscribe(( data: User) => this.user = data);
@@ -37,7 +37,6 @@ export class UserpageComponent implements OnInit {
       });
 
       this.sortedOrders.push(...ids);
-      console.log(this.sortedOrders);
 
       for (let i=0; i<this.sortedOrders.length; i++) {
         this.sortedOrders[i] = [];
@@ -47,10 +46,14 @@ export class UserpageComponent implements OnInit {
           }
         });
       }  
-
-      console.log(this.sortedOrders);
-      console.log(ids);
     }, (error: HttpErrorResponse) => console.log(error));
+  }
+
+  delete(): void {
+    this.backendConnectionService.deleteUser(this.user, this.usertoken);
+    this.loginService.logout();
+    this.router.navigateByUrl("/");
+
   }
 
 }
