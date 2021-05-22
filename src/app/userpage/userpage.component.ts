@@ -4,6 +4,7 @@ import { User } from '../models/User';
 import { LoginService } from "../services/login.service";
 import { BackendConnectionService } from "../services/backend-connection.service";
 import { HttpErrorResponse } from '@angular/common/http';
+import { OrderList } from '../models/OrderList';
 
 @Component({
   selector: 'app-userpage',
@@ -13,7 +14,7 @@ import { HttpErrorResponse } from '@angular/common/http';
 export class UserpageComponent implements OnInit {
   user: User = new User();
   usertoken: string = "";
-  orders: any[] = [];
+  orders: OrderList[] = [];
 
   constructor(private loginService: LoginService, private backendConnectionService: BackendConnectionService) { }
 
@@ -22,7 +23,7 @@ export class UserpageComponent implements OnInit {
     this.loginService.usertoken.subscribe(( data: string) => this.usertoken = data);
 
 
-    this.backendConnectionService.getAllOrders(this.user, this.usertoken).subscribe(( data: any) => {
+    this.backendConnectionService.getAllOrders(this.user, this.usertoken).subscribe(( data: OrderList[]) => {
       this.orders = data;
       console.log(data);
     }, (error: HttpErrorResponse) => console.log(error));

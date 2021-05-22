@@ -7,6 +7,7 @@ import { LoginService } from "./login.service";
 import { OrderDb } from '../models/OrderDb';
 import { OrderListDb } from '../models/OrderListDb';
 import { Product } from '../models/Product';
+import { OrderList } from "../models/OrderList";
 
 @Injectable({
   providedIn: 'root'
@@ -57,12 +58,12 @@ export class BackendConnectionService {
     return this.http.post("/order-lists", data, header) as Observable<OrderListDb>;
   }
 
-  getAllOrders(user: User, token: string): Observable<any> {
+  getAllOrders(user: User, token: string): Observable<OrderList[]> {
     const header = {
       headers: new HttpHeaders()
         .set('Authorization',  `Bearer ${token}`)
     };
-    return this.http.get(`/order-lists-for-user/${user.id}`, header) as Observable<any>;
+    return this.http.get(`/order-lists-for-user/${user.id}`, header) as Observable<OrderList[]>;
   }
 
   getDecodedUser(token: string): Observable<User> {
