@@ -1,7 +1,15 @@
 <a href="#" (click)="toggleForm($event)">Login/Signup</a>
 <form (ngSubmit)="onSubmit()" id="login-form" hidden>
     <input type="text" name="first_name" placeholder="first name" [(ngModel)]="first_name">
-    <input type="text" name="last_name" placeholder="lasta name" [(ngModel)]="last_name">
+    <input type="text" name="last_name" placeholder="last name" [(ngModel)]="last_name">
     <input type="password" name="password" placeholder="password" [(ngModel)]="password">
     <input type="submit">
 </form>
+<div *ngIf="!userExists">
+    <p >No user found</p>
+    <select (input)="selectInput($event)">
+        <option disabled selected>-- Create new user with credentials? --</option>
+        <option value="true">yes</option>
+        <option value="false">no</option>
+    </select>
+</div>
