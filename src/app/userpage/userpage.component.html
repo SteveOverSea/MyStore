@@ -2,7 +2,7 @@
 
 <h3>Your orders</h3>
 <ul>
-    <li></li>
+    <li *ngFor="let order of orders">{{ order.name }}</li>
 </ul>
 
 <button>delete user</button>

@@ -57,6 +57,14 @@ export class BackendConnectionService {
     return this.http.post("/order-lists", data, header) as Observable<OrderListDb>;
   }
 
+  getAllOrders(user: User, token: string): Observable<any> {
+    const header = {
+      headers: new HttpHeaders()
+        .set('Authorization',  `Bearer ${token}`)
+    };
+    return this.http.get(`/order-lists-for-user/${user.id}`, header) as Observable<any>;
+  }
+
   getDecodedUser(token: string): Observable<User> {
     const header = {
       headers: new HttpHeaders()
