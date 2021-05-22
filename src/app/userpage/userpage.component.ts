@@ -15,6 +15,7 @@ export class UserpageComponent implements OnInit {
   user: User = new User();
   usertoken: string = "";
   orders: OrderList[] = [];
+  sortedOrders: any[] = [];
 
   constructor(private loginService: LoginService, private backendConnectionService: BackendConnectionService) { }
 
@@ -26,6 +27,29 @@ export class UserpageComponent implements OnInit {
     this.backendConnectionService.getAllOrders(this.user, this.usertoken).subscribe(( data: OrderList[]) => {
       this.orders = data;
       console.log(data);
+
+      let ids: number[] = [];
+      data.forEach(orderlist => {
+        const id: number = orderlist.order_id;
+        if (!ids.includes(id)) {
+          ids.push(id);
+        }
+      });
+
+      this.sortedOrders.push(...ids);
+      console.log(this.sortedOrders);
+
+      for (let i=0; i<this.sortedOrders.length; i++) {
+        this.sortedOrders[i] = [];
+        data.forEach((orderlist: any) => {
+          if (ids[i] == orderlist.order_id) {
+            this.sortedOrders[i].push(orderlist);
+          }
+        });
+      }  
+
+      console.log(this.sortedOrders);
+      console.log(ids);
     }, (error: HttpErrorResponse) => console.log(error));
   }
 

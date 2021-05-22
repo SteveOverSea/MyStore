@@ -1,8 +1,9 @@
 <h2>Hello, {{ user.first_name + " " + user.last_name}}!</h2>
 
 <h3>Your orders</h3>
-<ul>
-    <li *ngFor="let order of orders">{{ order.name }}</li>
+<ul *ngFor="let sortedOrder of sortedOrders">
+    <p>Order No. {{ sortedOrders.indexOf(sortedOrder) }}</p>
+    <li *ngFor="let order of sortedOrder">{{ order.name }} : {{ order.quantity }} x {{ order.price }} Status: {{ order.status }}</li>
 </ul>
 
 <button>delete user</button>
