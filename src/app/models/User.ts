@@ -2,7 +2,7 @@ export class User {
     first_name: string;
     last_name: string;
     password: string;
-    is_admin: boolean;
+    is_admin?: boolean;
 
     constructor() {
         this.first_name = "";

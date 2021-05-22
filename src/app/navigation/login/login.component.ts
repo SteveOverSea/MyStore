@@ -3,6 +3,7 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Token } from "../../models/Token";
 import { User } from "../../models/User";
 import { BackendConnectionService } from "../../services/backend-connection.service";
+import { LoginService } from "../../services/login.service";
 
 @Component({
   selector: 'app-login',
@@ -13,61 +14,50 @@ export class LoginComponent implements OnInit {
   first_name: string = "";
   last_name: string = "";
   password: string = "";
-  usertoken: string = "";
+  isLoggedIn: boolean = false;
   userExists: boolean = true;
-  @Output() loggedInUser: EventEmitter<string> = new EventEmitter();
-  @Output() isLoggedIn: EventEmitter<boolean> = new EventEmitter();
 
-  constructor(private backendConnectionService: BackendConnectionService) { }
+  @Output() userLoggedIn: EventEmitter<void> = new EventEmitter();
+
+  constructor(private backendConnectionService: BackendConnectionService, private loginService: LoginService) { }
 
   ngOnInit(): void {
+    this.loginService.loggedIn.subscribe((data: boolean) => {
+      this.isLoggedIn = data;
+      if (this.isLoggedIn) {
+      this.userLoggedIn.emit();
+      this.first_name = "";
+      this.last_name = "";
+      this.password = "";
+      }
+    });
+    this.loginService.userExists.subscribe((data: boolean) => this.userExists = data);
   }
 
   onSubmit(): void {
-    // check if user exists
-
-
-   
-    this.backendConnectionService.loginUser({
+    this.loginService.loginUser({
       first_name: this.first_name,
       last_name: this.last_name,
-      password: this.password,
-      is_admin: false
-    }).subscribe(( data: Token) => { 
-      if(data) {
-        this.usertoken = data.token;
-        console.log(this.usertoken);
-        this.emitLoggedInUser(this.usertoken);
-      }
-    }, ( err: HttpErrorResponse ) => {
-      console.log(err.error);
-      this.userExists = false;
+      password: this.password
     });
 
-
-    // otherwise ask if new one should be created
-
-    // LOGIN form should be an own child component on the navigation
+    
   }
 
   selectInput(e: Event): void {
     const selectValue: string  = (e.target as HTMLSelectElement).value;
 
-    if (selectValue === "true") {
-      this.backendConnectionService.createUser({
-        first_name: this.first_name,
-        last_name: this.last_name,
-        password: this.password,
-        is_admin: false
-      }).subscribe(( data: Token ) => {
-        this.usertoken = data.token;
-        console.log(this.usertoken);
-        this.userExists = true;
-        this.emitLoggedInUser(this.usertoken);
-      });
+    this.loginService.shouldUserBeCreated(selectValue, {
+      first_name: this.first_name,
+      last_name: this.last_name,
+      password: this.password
+    });
 
-    } else if (selectValue === "false") {
-      this.userExists = true;
+    if (this.isLoggedIn) {
+      this.userLoggedIn.emit();
+      this.first_name = "";
+      this.last_name = "";
+      this.password = "";
     }
   }
 
@@ -76,17 +66,8 @@ export class LoginComponent implements OnInit {
     form.hidden = !form.hidden;
   }
 
-  emitLoggedInUser(token: string): void{
-    this.isLoggedIn.emit(true);
-    this.backendConnectionService.getDecodedUser(token).subscribe( (data: User) => this.loggedInUser.emit(data.first_name + " " + data.last_name));
-    this.first_name = "";
-    this.last_name = "";
-    this.password = "";
-  }
-
   logout(e: Event): void {
-    this.isLoggedIn.emit(false);
-    this.usertoken = "";
+    this.loginService.logout();
   }
 
 }

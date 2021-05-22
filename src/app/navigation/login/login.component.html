@@ -1,4 +1,4 @@
-<div *ngIf="!usertoken">
+<div *ngIf="!isLoggedIn">
 <a href="#" (click)="toggleForm($event)">Login/Signup</a>
 <form (ngSubmit)="onSubmit()" id="login-form" hidden>
     <input type="text" name="first_name" placeholder="first name" [(ngModel)]="first_name">
@@ -16,6 +16,6 @@
 </div>
 </div>
 
-<div *ngIf="usertoken">
+<div *ngIf="isLoggedIn">
     <a href="#" (click)="logout($event)">Logout</a>
 </div>
