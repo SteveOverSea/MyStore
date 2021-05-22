@@ -31,7 +31,8 @@ export class LoginComponent implements OnInit {
     this.backendConnectionService.loginUser({
       first_name: this.first_name,
       last_name: this.last_name,
-      password: this.password
+      password: this.password,
+      is_admin: false
     }).subscribe(( data: Token) => { 
       if(data) {
         this.usertoken = data.token;
@@ -56,7 +57,8 @@ export class LoginComponent implements OnInit {
       this.backendConnectionService.createUser({
         first_name: this.first_name,
         last_name: this.last_name,
-        password: this.password
+        password: this.password,
+        is_admin: false
       }).subscribe(( data: Token ) => {
         this.usertoken = data.token;
         console.log(this.usertoken);
