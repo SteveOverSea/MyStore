@@ -2,6 +2,12 @@ import { Injectable } from '@angular/core';
 import { Product } from "../models/Product";
 import { Order } from "../models/Order";
 import { BehaviorSubject } from "rxjs";
+import { LoginService } from "./login.service";
+import { HttpClient, HttpErrorResponse } from "@angular/common/http";
+import { BackendConnectionService } from "./backend-connection.service";
+import { OrderDb } from '../models/OrderDb';
+import { OrderListDb } from '../models/OrderListDb';
+import { User } from '../models/User';
 
 
 @Injectable({
@@ -12,8 +18,15 @@ export class CartService {
   order: Order = new Order();
   count = new BehaviorSubject<number>(0);
   editedProducts = new BehaviorSubject<boolean>(false);
+  orderDB: OrderDb = new OrderDb();
+  user: User = new User();
+  usertoken: string = "";
 
-  constructor() { }
+  constructor(private loginService: LoginService, private http: HttpClient, private backendConnectionService: BackendConnectionService) { 
+    this.loginService.loggedInUser.subscribe((data: User) => this.user = data);
+    this.loginService.usertoken.subscribe((data: string) => this.usertoken = data);
+
+  }
 
   add(product: Product, quantity: number) {
     let found: Product | undefined = this.products.find(p => p.id == product.id);
@@ -44,6 +57,26 @@ export class CartService {
 
   saveOrder(order: Order): void{
     this.order = order;
+
+    if (this.loginService.loggedIn.value) {
+      this.saveOrderToDb();
+    }
+  }
+
+  saveOrderToDb(): void {
+    this.backendConnectionService.createOrder(this.user, this.usertoken).subscribe(( data: OrderDb) => {
+      console.log(this);
+      this.orderDB = data;
+      console.log(data);
+      this.products.forEach(product => {
+        console.log("writing orderlist");
+        this.backendConnectionService.createOrderList(this.orderDB, product, this.usertoken).subscribe(( data: OrderListDb) => {
+          console.log(data);
+          this.empty();
+      }, (err: HttpErrorResponse) => console.log(err));
+      });
+      
+    }, (err: HttpErrorResponse) => console.log(err));
   }
 
   getOrder(): Order {

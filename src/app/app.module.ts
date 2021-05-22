@@ -15,6 +15,7 @@ import { OrderConfirmationComponent } from './order-confirmation/order-confirmat
 import { HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './navigation/login/login.component';
 import { AddProductComponent } from './add-product/add-product.component';
+import { UserpageComponent } from './userpage/userpage.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { AddProductComponent } from './add-product/add-product.component';
     CheckoutFormComponent,
     OrderConfirmationComponent,
     LoginComponent,
-    AddProductComponent
+    AddProductComponent,
+    UserpageComponent
   ],
   imports: [
     BrowserModule,

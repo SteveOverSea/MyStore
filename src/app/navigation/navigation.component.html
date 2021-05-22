@@ -13,5 +13,5 @@
         
        
     </ul>
-    <h3 *ngIf="loggedIn">Logged in as {{ loggedInUser.first_name + " " + loggedInUser.last_name}}</h3>
+    <h3 *ngIf="loggedIn">Logged in as <a routerLink="/userpage">{{ loggedInUser.first_name + " " + loggedInUser.last_name}}</a></h3>
 </div>

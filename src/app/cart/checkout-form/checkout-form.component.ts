@@ -33,7 +33,6 @@ export class CheckoutFormComponent implements OnInit {
     this.order.userdata = this.userdata;
 
     this.cart.saveOrder(this.order);
-    this.cart.empty();
     this.router.navigateByUrl("/confirm");
   }
 
