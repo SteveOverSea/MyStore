@@ -1,10 +1,10 @@
 <div *ngIf="!isLoggedIn">
 <a href="#" (click)="toggleForm($event)">Login/Signup</a>
-<form (ngSubmit)="onSubmit()" id="login-form" hidden>
-    <input type="text" name="first_name" placeholder="first name" [(ngModel)]="first_name">
-    <input type="text" name="last_name" placeholder="last name" [(ngModel)]="last_name">
-    <input type="password" name="password" placeholder="password" [(ngModel)]="password">
-    <input type="submit">
+<form (ngSubmit)="onSubmit()" id="login-form" hidden #form=ngForm>
+    <input type="text" name="first_name" placeholder="first name" minlength="3" required [(ngModel)]="first_name">
+    <input type="text" name="last_name" placeholder="last name" minlength="3" required [(ngModel)]="last_name">
+    <input type="password" name="password" placeholder="password" minlength="3" required [(ngModel)]="password">
+    <input type="submit" [disabled]="form.invalid">
 </form>
 <div *ngIf="!userExists">
     <p >No user found</p>
