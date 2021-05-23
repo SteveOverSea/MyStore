@@ -15,7 +15,6 @@ export class ProductsService {
   loadedProduct = new BehaviorSubject<boolean>(false);
 
   constructor(private productsFetch: ProductsFetchService, private backendConnectionService: BackendConnectionService, private http: HttpClient, private loginService: LoginService, private router: Router) { 
-    this.loadProducts();
   }
 
   loadProducts(): void {
