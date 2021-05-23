@@ -4,6 +4,20 @@
     justify-content: space-evenly;
 }
 
+@media (max-width: 800px) {
+    #cart-container {
+        flex-direction: column;
+    }
+
+    h2 {
+        text-align: center;
+    }
+
+    .total-price {
+        text-align: center;
+    }
+}
+
 h2 {
     margin-top: 0;
     font-family: Arial, Helvetica, sans-serif;

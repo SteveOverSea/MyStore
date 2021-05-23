@@ -1,19 +1,21 @@
 <div *ngIf="!isLoggedIn">
-<a href="#" (click)="toggleForm($event)">Login/Signup</a>
-<form (ngSubmit)="onSubmit()" id="login-form" hidden #form=ngForm>
-    <input type="text" name="first_name" placeholder="first name" minlength="3" required [(ngModel)]="first_name">
-    <input type="text" name="last_name" placeholder="last name" minlength="3" required [(ngModel)]="last_name">
-    <input type="password" name="password" placeholder="password" minlength="3" required [(ngModel)]="password">
-    <input type="submit" [disabled]="form.invalid">
-</form>
-<div *ngIf="!userExists">
-    <p >No user found</p>
-    <select (input)="selectInput($event)">
-        <option disabled selected>-- Create new user with credentials? --</option>
-        <option value="true">yes</option>
-        <option value="false">no</option>
-    </select>
-</div>
+    <a href="#" (click)="toggleForm($event)">Login/Signup</a>
+    <div id="login-form" hidden>
+        <form (ngSubmit)="onSubmit()" #form=ngForm>
+            <input type="text" name="first_name" placeholder="first name" minlength="3" required [(ngModel)]="first_name">
+            <input type="text" name="last_name" placeholder="last name" minlength="3" required [(ngModel)]="last_name">
+            <input type="password" name="password" placeholder="password" minlength="3" required [(ngModel)]="password">
+            <input type="submit" [disabled]="form.invalid">
+        </form>
+    </div>
+    <div *ngIf="!userExists">
+        <p >No user found</p>
+        <select (input)="selectInput($event)">
+            <option disabled selected>-- Create new user with credentials? --</option>
+            <option value="true">yes</option>
+            <option value="false">no</option>
+        </select>
+    </div>
 </div>
 
 <div *ngIf="isLoggedIn">

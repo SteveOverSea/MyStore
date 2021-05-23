@@ -25,8 +25,4 @@ export class NavigationComponent implements OnInit {
     this.loginService.loggedIn.subscribe(( data: boolean) => this.loggedIn = data);
     this.loginService.loggedInUser.subscribe(( data: User) => this.loggedInUser = data);
   }
-
-  showLoginName(): void {
-    this.loggedInUsername = `${this.loggedInUser.first_name} ${this.loggedInUser.last_name}`;
-  }
 }

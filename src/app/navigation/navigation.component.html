@@ -1,17 +1,13 @@
 <div id="nav-container">
     <h1>My Store</h1>
-    <span *ngIf="this.backendConnectionServie.isConnectedToBackend">connected to backend</span>
-    <span *ngIf="!this.backendConnectionServie.isConnectedToBackend">connected to data.json</span>
+    <span class="connection" *ngIf="this.backendConnectionServie.isConnectedToBackend">connected to backend</span>
+    <span class="connection" *ngIf="!this.backendConnectionServie.isConnectedToBackend">connected to data.json</span>
 
     <ul>
-        <a routerLink="/">Store</a>
-        <a routerLink="/cart">Cart({{ cartCount }})</a>
-        <a routerLink="/addProduct" *ngIf="loggedInUser.is_admin">Add new product</a>
-        
-        <app-login *ngIf="this.backendConnectionServie.isConnectedToBackend"></app-login>
-        
-        
-       
+        <a class="navigation-item" routerLink="/">Store</a>
+        <a class="navigation-item" routerLink="/cart">Cart({{ cartCount }})</a>
+        <a class="navigation-item" routerLink="/addProduct" *ngIf="loggedInUser.is_admin">Add new product</a>
     </ul>
     <h3 *ngIf="loggedIn">Logged in as <a routerLink="/userpage">{{ loggedInUser.first_name + " " + loggedInUser.last_name}}</a></h3>
 </div>
+<app-login *ngIf="this.backendConnectionServie.isConnectedToBackend"></app-login>

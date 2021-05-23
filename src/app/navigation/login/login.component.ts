@@ -65,8 +65,8 @@ export class LoginComponent implements OnInit {
   }
 
   toggleForm(e: Event): void {
-    const form = document.getElementById("login-form") as HTMLFormElement;
-    form.hidden = !form.hidden;
+    const formContainer = document.getElementById("login-form") as HTMLFormElement;
+    formContainer.hidden = !formContainer.hidden;
   }
 
   logout(e: Event): void {

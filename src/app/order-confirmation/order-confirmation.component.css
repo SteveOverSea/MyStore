@@ -1,0 +1,20 @@
+.order-confirmation-container {
+    margin: 0 auto;
+    display: block;
+    width: fit-content;
+}
+
+h2 {
+    text-align: center;
+    color:teal;
+}
+
+.confirmation-price {
+    font-size: 1.1rem;
+    font-weight: 700;
+}
+
+.confirmation-username {
+    font-size: 1.1rem;
+    font-style: italic;
+}

@@ -1,13 +1,16 @@
-div {
-    color: red;
-}
-
 #checkout-form-container, form {
     display: flex;
     flex-direction: column;
-    width: 300px;
+    width: clamp(300px, 25vw, 500px);
+    margin: 0 auto;
 }
 
-input, button {
-    margin: 0.5rem;
+input {
+    margin: 0.5rem auto;
+    width: 75%;
+}
+
+button {
+    width: min-content;
+    margin: 0.5rem auto;
 }
