@@ -56,4 +56,10 @@ export class UserpageComponent implements OnInit {
 
   }
 
+  calcTotal(order: OrderList[]): number {
+    let sum = 0;
+    order.forEach(o => sum+= o.quantity * o.price);
+    return sum;
+  }
+
 }
