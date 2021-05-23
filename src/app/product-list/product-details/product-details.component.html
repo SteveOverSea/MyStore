@@ -3,6 +3,7 @@
         <img src="{{ product.url }}">
     </div>
     <div id="product-details-info">
+        <a routerLink="/">back</a>
         <h2> {{ product.name }}</h2>
         <p>{{ product.description }}</p>
         <p>{{ product.price | currency: "EUR" }}</p>
