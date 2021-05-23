@@ -1,8 +1,11 @@
-#cart-item-container {
+.cart-item-container {
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
     align-items: center;
+
+    border: 1px solid #999;
+    border-radius: 5px;
 }
 
 input {
@@ -16,7 +19,10 @@ p {
 
 button {
     margin-left: 50px;
-    cursor: pointer;
+}
+
+button:hover {
+    background-color: tomato;
 }
 
 img {

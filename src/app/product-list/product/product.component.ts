@@ -28,18 +28,15 @@ export class ProductComponent implements OnInit {
     if(this.cartSuccess) {
       this.cartSuccess.nativeElement.addEventListener("animationend", () => {
         if(this.cartSuccess) {
-          this.cartSuccess.nativeElement.hidden = true;
           this.cartSuccess.nativeElement.classList.remove("cart-success-animation");
         }
       });
     }
-
   }
 
   addToCart(): void {
     this.cart.add(this.product, this.quantity); 
     if(this.cartSuccess) {
-      this.cartSuccess.nativeElement.hidden = false;
       this.cartSuccess.nativeElement.classList.add("cart-success-animation");
     }
     

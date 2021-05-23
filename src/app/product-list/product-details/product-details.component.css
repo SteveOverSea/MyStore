@@ -1,11 +1,11 @@
 img {
-    width: 450px;
-    height: 600px;
+    width: clamp(200px, 40vw, 450px);
+    height: clamp(350px, auto, 600px);
     object-fit: cover;
     display: block;
 }
 
-#product-details-container {
+.product-details-container {
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
@@ -16,21 +16,19 @@ img {
     justify-content: baseline;
 }
 
-#product-details-info {
+.product-details-info {
     align-self: center;
     padding-left: 50px;
 }
 
-button:hover {
-    cursor: pointer;
-}
-
-h2 {
+.product-description {
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 2rem;
 }
 
-a {
-    color: lightskyblue;
-    cursor: pointer;
+.back-button {
+    text-decoration: none;
+}
+
+.back-button:hover {
+    text-decoration: underline;
 }
