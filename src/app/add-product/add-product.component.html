@@ -1,8 +1,8 @@
 <h2>Add a new product</h2>
-<form (ngSubmit)="onSubmit()">
-    <input type="text" name="name" placeholder="product name" [(ngModel)]="name">
-    <input type="text" name="description" placeholder="description" [(ngModel)]="description">
-    <input type="text" name="price" placeholder="price" [(ngModel)]="price">
-    <input type="url" name="url" placeholder="image url" [(ngModel)]="url">
-    <input type="submit">
+<form (ngSubmit)="onSubmit()" #form=ngForm>
+    <input type="text" name="name" placeholder="product name" minlength="3" required [(ngModel)]="name">
+    <input type="text" name="description" placeholder="description" minlength="10" required [(ngModel)]="description">
+    <input type="text" name="price" placeholder="price" pattern="^\d+(.\d{1,2})?$" required [(ngModel)]="price">
+    <input type="url" name="url" placeholder="image url" required minlength="10" [(ngModel)]="url">
+    <input type="submit" [disabled]=form.invalid>
 </form>

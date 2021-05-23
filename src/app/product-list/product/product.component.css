@@ -37,3 +37,17 @@ h2 {
     font-size: 1.5rem;
     text-align: center;
 }
+
+.cart-success-animation {
+    animation-name: display;
+    animation-duration: 1s;
+    animation-timing-function: ease-in-out;
+    color: green;
+}
+
+@keyframes display {
+    0% { opacity: 0;}
+    33% {opacity: 1;}
+    66% {opacity: 1;}
+    100% {opacity: 0;}
+}

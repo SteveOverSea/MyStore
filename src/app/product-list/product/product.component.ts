@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ElementRef, ViewChild } from '@angular/core';
 import { User } from 'src/app/models/User';
 import { Product } from "../../models/Product";
 import { CartService } from "../../services/cart.service";
@@ -14,15 +14,35 @@ export class ProductComponent implements OnInit {
   @Input() product: Product = new Product();
   quantity: number = 1;
   isAdmin: boolean | undefined = false;
+  @ViewChild('cartSuccess') cartSuccess: ElementRef | undefined;
+
 
   constructor(private cart: CartService, private loginService: LoginService, private products: ProductsService) { }
 
   ngOnInit(): void {
-    this.loginService.loggedInUser.subscribe(( data: User ) => this.isAdmin = data.is_admin)
+    this.loginService.loggedInUser.subscribe(( data: User ) => this.isAdmin = data.is_admin);
+   
+  }
+
+  ngAfterViewInit(): void {
+    if(this.cartSuccess) {
+      this.cartSuccess.nativeElement.addEventListener("animationend", () => {
+        if(this.cartSuccess) {
+          this.cartSuccess.nativeElement.hidden = true;
+          this.cartSuccess.nativeElement.classList.remove("cart-success-animation");
+        }
+      });
+    }
+
   }
 
   addToCart(): void {
-    this.cart.add(this.product, this.quantity);
+    this.cart.add(this.product, this.quantity); 
+    if(this.cartSuccess) {
+      this.cartSuccess.nativeElement.hidden = false;
+      this.cartSuccess.nativeElement.classList.add("cart-success-animation");
+    }
+    
   }
 
   setQuantity(e: Event): void {
