@@ -32,5 +32,54 @@ Additional functionality if you connect this project to the previous Nanodegree 
 
 ## Configuration with [Storefront Backend](https://github.com/SteveOverSea/Storefront-Backend)
 
+### Prerequisites
 
+- Node.js
+- AngularJS
+- PostgreSQL
+
+1. Download [My Store](https://github.com/SteveOverSea/MyStore) and [Storefront Backend](https://github.com/SteveOverSea/Storefront-Backend)
+2. Follow the database and API configuration steps from the [README](https://github.com/SteveOverSea/Storefront-Backend/blob/master/README.md)
+   - You don't have to run any test commands or setup a TestDB name
+3. cd into the MyStore directory and ```npm install```
+3. In the MyStore project look into ```src/environments/environment.ts``` and check if the ``àpi_host`` is one same port/url the API server is running (default: localhost:3000)
+   - also note that in this file there are also the credentials for the admin user for the web store
+4. Build the project with ```ng build```
+5. In the .env from the API also fill in the variable ```PROJECT_PATH``` which should be a string of the absolute path to the created dist directory for the app ```"<your path>/dist/my-store"```
+6. Run ```db-migrate up``` and ```npm run start``` on the API server
+7. Go to ```localhost:3000```and enjoy the project!
+
+## Project Preview
+
+Store Homepage
+
+(https://ibb.co/zs0xhVC)
+
+Product Detail View
+
+(https://ibb.co/3SM2tHJ)
+
+Cart
+
+(https://ibb.co/yqhhy22)
+
+Login
+
+(https://ibb.co/RYZdLvy)
+
+Order Confirmation
+
+(https://ibb.co/TtzKYk3)
+
+Userpage
+
+(https://ibb.co/F0fzVXp)
+
+Admin View
+
+(https://ibb.co/ct7VFqB)
+
+Add a Product
+
+(https://ibb.co/0MBLJBH)
   
