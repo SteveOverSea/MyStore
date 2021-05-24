@@ -1,10 +1,15 @@
+<div class="userpage-container">
 <h2>Hello, {{ user.first_name + " " + user.last_name}}!</h2>
 
 <h3>Your orders</h3>
-<ul *ngFor="let sortedOrder of sortedOrders">
-    <p>Order No. {{ sortedOrders.indexOf(sortedOrder) }}</p>
-    <li *ngFor="let order of sortedOrder">{{ order.name }} : {{ order.quantity }} x {{ order.price }} Status: <span *ngIf="order.status">Completed</span><span *ngIf="!order.status">Pending</span></li>
-    <p>Total: {{ calcTotal(sortedOrder) | currency: "EUR" }}</p>
-</ul>
+
+<div class="order-container">
+    <ul class="order-list" *ngFor="let sortedOrder of sortedOrders">
+        <p class="order-number">Order No. {{ sortedOrders.indexOf(sortedOrder) }}</p>
+        <li class="order-item" *ngFor="let order of sortedOrder">{{ order.name }} : {{ order.quantity }} x {{ order.price | currency: "EUR" }} <span class="order-completed" *ngIf="order.status">Completed</span><span class="order-pending" *ngIf="!order.status">Pending</span></li>
+        <p class="order-total">Total: {{ calcTotal(sortedOrder) | currency: "EUR" }}</p>
+    </ul>
+</div>
 
 <button (click)="delete()">delete user</button>
+</div>

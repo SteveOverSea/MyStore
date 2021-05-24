@@ -1,4 +1,4 @@
-html, p {
+html, p, ul, li {
     /* reset styles */
     margin-block-start: 0;
     margin-block-end: auto;
@@ -8,9 +8,9 @@ html, p {
     padding-inline-end: auto;
     padding-block-start: 0;
     padding-block-end: auto;
-    margin: 0;
-    padding: 0;
+}
 
+html {
     font-size: 1em;
 }
 
