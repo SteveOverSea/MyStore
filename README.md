@@ -55,33 +55,33 @@ Additional functionality if you connect this project to the previous Nanodegree 
 
 Store Homepage
 
-!(https://ibb.co/zs0xhVC)
+![Store Homepage](https://ibb.co/zs0xhVC)
 
 Product Detail View
 
-!(https://ibb.co/3SM2tHJ)
+![Product Detail View](https://ibb.co/3SM2tHJ)
 
 Cart
 
-!(https://ibb.co/yqhhy22)
+![Cart](https://ibb.co/yqhhy22)
 
 Login
 
-!(https://ibb.co/RYZdLvy)
+![Login](https://ibb.co/RYZdLvy)
 
 Order Confirmation
 
-!(https://ibb.co/TtzKYk3)
+![Order Confirmation](https://ibb.co/TtzKYk3)
 
 Userpage
 
-!(https://ibb.co/F0fzVXp)
+![Userpage](https://ibb.co/F0fzVXp)
 
 Admin View
 
-!(https://ibb.co/ct7VFqB)
+![Admin View](https://ibb.co/ct7VFqB)
 
 Add a Product
 
-!(https://ibb.co/0MBLJBH)
+![Add a Product](https://ibb.co/0MBLJBH)
   
