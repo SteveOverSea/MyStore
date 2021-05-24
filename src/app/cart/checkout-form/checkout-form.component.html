@@ -1,9 +1,9 @@
 <div id="checkout-form-container">
     <h3>Fill in your details</h3>
     <form (ngSubmit)="onSubmit()" #form="ngForm">
-        <input type="text" name="name" [(ngModel)]="name" placeholder="full name" pattern="([a-zA-Z]+\s)+([a-zA-Z]+)" required #fullName="ngModel">
-        <input type="text" name="address" [(ngModel)]="address" placeholder="address" pattern="([a-zA-Z-]+\s)+(([a-zA-Z-]+)\s)*\d+" required #addressField="ngModel">
-        <input type="text" name="creditCard" [(ngModel)]="creditCard" pattern="(\d{4}(\s)?){4}" placeholder="credit card numbers" required #card="ngModel">
+        <input type="text" name="name" [(ngModel)]="name" placeholder="full name" pattern="([a-zA-Z]+\s)+([a-zA-Z]+)" minlength="3" required #fullName="ngModel">
+        <input type="text" name="address" [(ngModel)]="address" placeholder="address" pattern="([a-zA-Z-]+\s)+(([a-zA-Z-]+)\s)*\d+" minlenght="3" required #addressField="ngModel">
+        <input type="text" name="creditCard" [(ngModel)]="creditCard" pattern="(\d{4}(\s)?){4}" placeholder="credit card numbers" minlength="16" required #card="ngModel">
         <button type="submit" [disabled]="form.invalid || this.cartCount == 0">Order</button>
     </form>
 
