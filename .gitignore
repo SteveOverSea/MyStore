@@ -3,7 +3,7 @@
 notes.txt
 
 #environment-variables
-/src/environment
+/src/environments
 
 # compiled output
 /dist

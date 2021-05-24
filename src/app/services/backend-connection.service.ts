@@ -7,7 +7,7 @@ import { OrderDb } from '../models/OrderDb';
 import { OrderListDb } from '../models/OrderListDb';
 import { Product } from '../models/Product';
 import { OrderList } from "../models/OrderList";
-import { environment } from 'src/environments/environment';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
