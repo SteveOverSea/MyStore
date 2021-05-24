@@ -24,4 +24,8 @@ export class CartComponent implements OnInit {
     });
   }
 
+  removeCartItem(product: Product): void {
+    this.cart.remove(product);
+  }
+
 }

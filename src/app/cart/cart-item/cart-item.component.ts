@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { Product } from "../../models/Product";
 import { CartService } from "../../services/cart.service";
 import { CartComponent } from "../cart.component";
@@ -10,6 +10,7 @@ import { CartComponent } from "../cart.component";
 })
 export class CartItemComponent implements OnInit {
   @Input() product: Product = new Product();
+  @Output() removeItemFromCart: EventEmitter<Product> = new EventEmitter();
 
   constructor(private cart: CartService, private cartComponent: CartComponent) { }
 
@@ -17,6 +18,7 @@ export class CartItemComponent implements OnInit {
   }
 
   removeFromCart(): void {
+    this.removeItemFromCart.emit(this.product);
     this.cart.remove(this.product);
   }
 
