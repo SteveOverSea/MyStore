@@ -55,33 +55,32 @@ Additional functionality if you connect this project to the previous Nanodegree 
 
 Store Homepage
 
-![Store Homepage](https://ibb.co/zs0xhVC)
+![Store Homepage](https://i.ibb.co/XXvLZx6/Screenshot-2021-05-24-at-13-22-24.png)
 
 Product Detail View
 
-![Product Detail View](https://ibb.co/3SM2tHJ)
+![Product Detail View](https://i.ibb.co/6D1z65d/Screenshot-2021-05-24-at-13-22-48.png)
 
 Cart
 
-![Cart](https://ibb.co/yqhhy22)
+![Cart](https://i.ibb.co/9WwwTPP/Screenshot-2021-05-24-at-13-23-07.png
 
 Login
 
-![Login](https://ibb.co/RYZdLvy)
+![Login](https://i.ibb.co/TYpdzvL/Screenshot-2021-05-24-at-13-23-54.png)
 
 Order Confirmation
 
-![Order Confirmation](https://ibb.co/TtzKYk3)
+![Order Confirmation](https://i.ibb.co/qpb07dQ/Screenshot-2021-05-24-at-13-24-37.png)
 
 Userpage
 
-![Userpage](https://ibb.co/F0fzVXp)
+![Userpage](https://i.ibb.co/b2yXJFt/Screenshot-2021-05-24-at-13-24-56.png)
 
 Admin View
 
-![Admin View](https://ibb.co/ct7VFqB)
+![Admin View](https://i.ibb.co/VDP5S61/Screenshot-2021-05-24-at-13-25-12.png)
 
 Add a Product
 
-![Add a Product](https://ibb.co/0MBLJBH)
-  
+![Add a Product](https://i.ibb.co/r6bhybD/Screenshot-2021-05-24-at-13-25-21.png)
