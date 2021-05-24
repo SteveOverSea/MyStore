@@ -16,6 +16,8 @@ img {
 .delete-product-span { 
     cursor: pointer;
     color: red;
+    font-size: 0.75rem;
+    font-family: 'Times New Roman', Times, serif;
 }
 
 button {

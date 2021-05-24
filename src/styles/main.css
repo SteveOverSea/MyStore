@@ -68,8 +68,10 @@ button:hover, input[type=submit]:hover {
 }
 
 a {
-    color: lightskyblue;
+    color: rgb(67, 129, 167);
     cursor: pointer;
+    font-size: 1.25rem;
+    font-family: 'Courier New', Courier, monospace;
 }
 
 a:hover {
@@ -108,7 +110,6 @@ a:hover {
 
 .product-price {
     font-family: 'Times New Roman', Times, serif;
-    margin: auto 0.5rem;
 }
 
 .navigation-item {

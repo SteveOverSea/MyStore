@@ -2,8 +2,7 @@
     <a routerLink="/product/{{ product.id }}">
         <img src="{{ product.url }}">
     </a>
-    <h2>{{ product.name }}</h2>
-    <span class="delete-product-span" *ngIf="isAdmin" (click)="deleteProduct()">delete</span>
+    <h2>{{ product.name }} <span class="delete-product-span" *ngIf="isAdmin" (click)="deleteProduct()">delete</span></h2>
     <div class="input-container">
         <p class="price">{{ product.price | currency: "EUR" }}</p>
         <select name="quantity" (change)="setQuantity($event)">

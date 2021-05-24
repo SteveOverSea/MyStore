@@ -1,0 +1,17 @@
+.add-product-container, form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    margin: 0 auto;
+    width: fit-content;
+}
+
+form {
+    width: clamp(200px, 25vw, 400px);
+}
+
+input[type=text], input[type=url] {
+    margin: 0.5rem;
+    width: 100%;
+}

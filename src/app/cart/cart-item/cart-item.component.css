@@ -17,6 +17,7 @@ input {
 
 p {
     width: 200px;
+    margin-block-end: unset;
 }
 
 button {
