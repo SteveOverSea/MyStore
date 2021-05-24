@@ -3,11 +3,11 @@ import { User } from "../models/User";
 import { Token } from "../models/Token";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Observable } from 'rxjs';
-import { LoginService } from "./login.service";
 import { OrderDb } from '../models/OrderDb';
 import { OrderListDb } from '../models/OrderListDb';
 import { Product } from '../models/Product';
 import { OrderList } from "../models/OrderList";
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -16,11 +16,11 @@ export class BackendConnectionService {
   public isConnectedToBackend: boolean = false;
   usertoken: string = "";
 
-  constructor(private http: HttpClient, private loginService: LoginService) { 
+  constructor(private http: HttpClient) { 
   }
 
   hostnameTest(): void {
-    if (window.location.host == "localhost:3000") {
+    if (window.location.host == environment.api_host) {
       this.isConnectedToBackend = true;
     }
   }
