@@ -1,27 +1,32 @@
 # MyStore
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.0.0.
+This is the capstone project of Udacity's Full Stack JavaScript Nanodegree.
+It showcases basic Angular usage in the example of a web-store. 
 
-## Development server
+It features following functionality:
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+- Shows a list of products (either from provided .json or API connection)
+- Shows a product details view when clicked on product
+- Add products to cart, remove them there and checkout the order
+  
+Additional functionality if you connect this project to the previous Nanodegree API project [Storefront Backend](https://github.com/SteveOverSea/Storefront-Backend). 
 
-## Code scaffolding
+- Login as a user and have access to a userpage to show your orders
+- Create a new user, if the credentials don't find an existing one
+- Login as admin to remove or add products to the store
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Configuration without Backend
 
-## Build
+### Prerequisites
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+- Node.js
+- AngularJS
 
-## Running unit tests
+### Instructions
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+1. Download the files in this repository
+2. cd into the directory
+3. ```npm install```
+4. ```ng serve```
+5. The project will be served on default on ```localhost:4200```
+  

@@ -2,9 +2,6 @@
 
 notes.txt
 
-#environment-variables
-/src/environments
-
 # compiled output
 /dist
 /tmp
