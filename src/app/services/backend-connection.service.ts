@@ -22,9 +22,14 @@ export class BackendConnectionService {
   hostnameTest(): void {
     if (window.location.host == environment.api_host) {
       this.isConnectedToBackend = true;
-      this.createUser(environment.adminUser).subscribe(() => console.log("prepared admin user"),
+
+      this.loginUser(environment.adminUser).subscribe(() => {
+        console.log("Admin user already created.");
+      }, () => {
+        this.createUser(environment.adminUser).subscribe(() => console.log("prepared admin user"),
         (err) => console.log(err));
-    }
+      });
+    }    
   }
 
   loginUser(user: User): Observable<Token> {
