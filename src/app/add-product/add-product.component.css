@@ -11,7 +11,7 @@ form {
     width: clamp(200px, 25vw, 400px);
 }
 
-input[type=text], input[type=url]ç {
+input[type=text], input[type=url] {
     margin: 0.5rem;
     width: 100%;
 }
