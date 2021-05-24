@@ -60,18 +60,16 @@ export class CartService {
 
     if (this.loginService.loggedIn.value) {
       this.saveOrderToDb();
+    } else {
+      this.empty();
     }
   }
 
   saveOrderToDb(): void {
     this.backendConnectionService.createOrder(this.user, this.usertoken).subscribe(( data: OrderDb) => {
-      console.log(this);
       this.orderDB = data;
-      console.log(data);
       this.products.forEach(product => {
-        console.log("writing orderlist");
         this.backendConnectionService.createOrderList(this.orderDB, product, this.usertoken).subscribe(( data: OrderListDb) => {
-          console.log(data);
           this.empty();
       }, (err: HttpErrorResponse) => console.log(err));
       });
