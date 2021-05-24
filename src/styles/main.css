@@ -1,4 +1,4 @@
-html {
+html, p {
     /* reset styles */
     margin-block-start: 0;
     margin-block-end: auto;

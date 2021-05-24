@@ -2,4 +2,35 @@ form {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
+    align-items: flex-start;
+}
+
+div div {
+    opacity: 0.9;
+    border-radius: 5px;
+    background-color: #FFF;
+}
+
+div div p, div div select {
+    padding: 0.5rem 0 0 0.5rem;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.75rem;
+    text-align: left;
+}
+
+input {
+    margin: 0.25rem;
+}
+
+a {
+    color: #000;
+    text-decoration: none;
+    margin: 0.5rem 0;
+    font-weight: 700;
+    display: block;
+    text-align: right;
+}
+
+a:hover {
+    color: #666;
 }

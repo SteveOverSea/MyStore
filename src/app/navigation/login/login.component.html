@@ -9,9 +9,10 @@
         </form>
     </div>
     <div *ngIf="!userExists">
-        <p >No user found</p>
+        <p >No user found. </p>
+        <p >Create new one?</p>
         <select (input)="selectInput($event)">
-            <option disabled selected>-- Create new user with credentials? --</option>
+            <option disabled selected></option>
             <option value="true">yes</option>
             <option value="false">no</option>
         </select>
