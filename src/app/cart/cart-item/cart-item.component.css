@@ -7,16 +7,17 @@
     border: 1px solid #999;
     border-radius: 5px;
     margin: 1rem auto;
-    max-width: 400px;
+    width: 600px;
 }
 
 input {
     width: 25px;
     height: min-content;
+    margin: 0 0.5rem;
 }
 
 p {
-    width: 200px;
+    width: max-content;
     margin-block-end: unset;
 }
 

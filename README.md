@@ -29,4 +29,8 @@ Additional functionality if you connect this project to the previous Nanodegree 
 3. ```npm install```
 4. ```ng serve```
 5. The project will be served on default on ```localhost:4200```
+
+## Configuration with [Storefront Backend](https://github.com/SteveOverSea/Storefront-Backend)
+
+
   
