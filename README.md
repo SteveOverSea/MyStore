@@ -63,7 +63,7 @@ Product Detail View
 
 Cart
 
-![Cart](https://i.ibb.co/9WwwTPP/Screenshot-2021-05-24-at-13-23-07.png
+![Cart](https://i.ibb.co/9WwwTPP/Screenshot-2021-05-24-at-13-23-07.png)
 
 Login
 
