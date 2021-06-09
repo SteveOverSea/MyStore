@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { Userdata } from "../../models/Userdata";
 import { Order } from "../../models/Order";
 import { CartService } from "../../services/cart.service";
+import { Observable } from 'rxjs';
 
 
 @Component({
@@ -16,12 +17,12 @@ export class CheckoutFormComponent implements OnInit {
   creditCard: string = "";
   userdata: Userdata = new Userdata();
   order: Order = new Order();
-  cartCount: number = 0;
+  cartCount$: Observable<number> = new Observable<number>();
 
   constructor(private router: Router, private cart: CartService) { }
 
   ngOnInit(): void {
-    this.cart.count.subscribe(() => this.cartCount = this.cart.getCount());
+    this.cartCount$ = this.cart.count;
   }
 
   onSubmit(): void {
