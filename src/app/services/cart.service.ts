@@ -17,8 +17,9 @@ export class CartService {
   products: Product[] = [];
   order: Order = new Order();
   count = new BehaviorSubject<number>(0);
-  editedProducts = new BehaviorSubject<boolean>(false);
+  editedProducts = new BehaviorSubject<Product[]>([]);
   orderDB: OrderDb = new OrderDb();
+  total: BehaviorSubject<number> = new BehaviorSubject<number>(0);
   user: User = new User();
   usertoken: string = "";
 
@@ -37,13 +38,15 @@ export class CartService {
       this.products.push(product);
     }
     this.count.next(this.getCount());
+    this.editedProducts.next(this.products);
+    this.total.next(this.getTotal());
   }
 
   remove(product: Product) {
     product.quantity = 0;
     this.products = this.products.filter(p => p !== product);
     this.count.next(this.getCount());
-    this.editedProducts.next(true);
+    this.editedProducts.next(this.products);
   }
 
   get(): Product[] {

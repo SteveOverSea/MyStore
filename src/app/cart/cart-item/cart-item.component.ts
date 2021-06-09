@@ -33,7 +33,7 @@ export class CartItemComponent implements OnInit {
     }
 
     this.product.quantity = parseInt(input.value);
-    this.cart.editedProducts.next(true);
+    this.cart.total.next(this.cart.getTotal());
     this.cart.count.next(this.cart.getCount());
   }
 

@@ -2,10 +2,10 @@
     <div class="cart">
         <h2>Your cart</h2>
         <ul>
-            <app-cart-item *ngFor="let product of products" [product]="product" (removeItemFromCart)="removeCartItem($event)"></app-cart-item>
+            <app-cart-item *ngFor="let product of products$ | async" [product]="product" (removeItemFromCart)="removeCartItem($event)"></app-cart-item>
         </ul>
-        <p class="total-price" *ngIf="sum">Total: {{ sum | currency: "EUR" }}</p>
-        <p *ngIf="!sum">... is empty</p>
+        <p class="total-price" *ngIf="sum$ | async">Total: {{ (sum$ | async) | currency: "EUR" }}</p>
+        <p *ngIf="!(sum$ | async)">... is empty</p>
     </div>
 
     <app-checkout-form></app-checkout-form>
